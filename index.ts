@@ -9,6 +9,5 @@ heap.insert(60);
 heap.insert(9);
 heap.insert(9);
 
-console.log(heap);
-
-console.log(heap.isEmpty);
+console.log(heap.getData);
+console.log(heap.getKthLargestValue(6));
