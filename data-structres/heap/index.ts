@@ -38,7 +38,7 @@ class Heap {
       throw new Error("The Heap is Empty!");
     }
 
-    this.data.shift();
+    let poppedItem = this.data.shift();
     this.size--;
 
     let index = 0;
@@ -54,7 +54,7 @@ class Heap {
       index = largerChildIndex;
     }
 
-    this.data = this.data.filter((item) => item);
+    return poppedItem;
   }
 
   //    Accecoures
@@ -80,12 +80,12 @@ class Heap {
     }
 
     if (!this.rightChild(index)) {
-      return this.data[index] < this.leftChild(index);
+      return this.data[index] > this.leftChild(index);
     }
 
     if (
-      this.data[index] < this.leftChild(index) &&
-      this.data[index] < this.rightChild(index)
+      this.data[index] > this.leftChild(index) &&
+      this.data[index] > this.rightChild(index)
     ) {
       return true;
     }
@@ -107,7 +107,7 @@ class Heap {
       : this.rightChildIndex(index);
   }
 
-  private get isEmpty() {
+  get isEmpty() {
     return this.size === 0;
   }
 }
