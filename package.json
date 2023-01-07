@@ -1,0 +1,18 @@
+{
+  "name": "data-structures-and-algos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ahmedmohmd/data-structures-and-algos.git",
+  "author": "<Ahmed Mohamed>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./index.ts"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "typescript": "^4.9.4"
+  }
+}
