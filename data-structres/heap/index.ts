@@ -14,22 +14,22 @@ class Heap {
     this.bubbleUp();
   }
 
-  parent(index) {
+  parentIndex(index) {
     let parentIndex = Math.floor((index - 1) / 2);
 
     return parentIndex;
   }
 
-  bubbleUp() {
+  private bubbleUp() {
     let index = this.size - 1;
 
-    while (index > 0 && this.data[index] > this.data[this.parent(index)]) {
-      [this.data[index], this.data[this.parent(index)]] = [
-        this.data[this.parent(index)],
+    while (index > 0 && this.data[index] > this.data[this.parentIndex(index)]) {
+      [this.data[index], this.data[this.parentIndex(index)]] = [
+        this.data[this.parentIndex(index)],
         this.data[index],
       ];
 
-      index = this.parent(index);
+      index = this.parentIndex(index);
     }
   }
 
@@ -41,6 +41,12 @@ class Heap {
     let poppedItem = this.data.shift();
     this.size--;
 
+    this.bubbleDown();
+
+    return poppedItem;
+  }
+
+  private bubbleDown() {
     let index = 0;
 
     while (index <= this.size && !this.isValidParent(index)) {
@@ -53,11 +59,8 @@ class Heap {
 
       index = largerChildIndex;
     }
-
-    return poppedItem;
   }
 
-  //    Accecoures
   private leftChildIndex(index) {
     return index * 2 + 1;
   }
@@ -111,3 +114,5 @@ class Heap {
     return this.size === 0;
   }
 }
+
+export default Heap;
