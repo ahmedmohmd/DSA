@@ -1,13 +1,11 @@
-import { Heap, PeriorityQueue } from "./src/data-structres/heap";
+import AVLTree from "./src/data-structres/tree/avlTree";
 
-let heap = new Heap();
+let avlTree = new AVLTree();
 
-heap.insert(5);
-heap.insert(4);
-heap.insert(10);
-heap.insert(60);
-heap.insert(9);
-heap.insert(9);
+avlTree.insert(12);
+avlTree.insert(3);
+avlTree.insert(9);
+avlTree.insert(4);
+avlTree.insert(6);
 
-console.log(heap.getData);
-console.log(heap.getKthLargestValue(6));
+console.log(JSON.stringify(avlTree));
