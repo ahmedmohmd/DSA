@@ -11,7 +11,7 @@ class LinkedList {
     this.tail = null;
   }
 
-  public insert(index, value) {
+  public insert(index, value): void {
     const node = new LinkedNode(value);
     const leader = this.traverseToIndex(index - 1);
     const pointer = this.head.next;

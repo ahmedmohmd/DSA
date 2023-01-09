@@ -1,9 +1,9 @@
 import StackNode from "./stackNode";
 
 class Stack {
-  size: number;
-  top: StackNode;
-  bottom: StackNode;
+  private size: number;
+  private top: StackNode;
+  private bottom: StackNode;
 
   constructor() {
     this.top = null;
@@ -11,8 +11,43 @@ class Stack {
     this.size = 0;
   }
 
-  peek(): StackNode {
+  public peek(): StackNode {
     return this.top;
+  }
+
+  public push(value: any): void {
+    const node = new StackNode(value);
+
+    if (this.size === 0) {
+      this.top = node;
+      this.bottom = node;
+    } else {
+      node.next = this.top;
+      this.top = node;
+    }
+
+    this.size++;
+  }
+
+  public pop(): any {
+    if (this.size === 0) {
+      return null;
+    }
+
+    if (this.size === 1) {
+      this.size--;
+      return this.top.value;
+    }
+
+    const poppedItem = this.top;
+    this.top = this.top.next;
+    this.size--;
+
+    return poppedItem.value;
+  }
+
+  public getSize(): number {
+    return this.size;
   }
 }
 

@@ -1,4 +1,4 @@
-import type { ArrayData, ArrayElement } from "./types";
+import type { ArrayData, ArrayElement } from "./utils/types";
 
 class Arr {
   private data: ArrayData;
