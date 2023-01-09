@@ -1,31 +1,31 @@
-import { ArrayData, ArrayElement, ArrayIndex, ArrayLength } from "./types";
+import type { ArrayData, ArrayElement } from "./types";
 
 class Arr {
   private data: ArrayData;
-  private length: ArrayLength;
+  private length: number;
 
   constructor() {
     this.data = {};
     this.length = 0;
   }
 
-  get isEmpty(): boolean {
+  public get isEmpty(): boolean {
     return this.length === 0;
   }
 
-  at(index: ArrayIndex) {
+  public at(index: number): ArrayElement {
     let element = this.data[index];
 
     if (element) return element;
     return undefined;
   }
 
-  push(element: ArrayElement) {
+  public push(element: ArrayElement): void {
     this.data[this.length] = element;
     this.length++;
   }
 
-  remove(index: ArrayIndex): void {
+  public remove(index: number): void {
     for (let i = index; i < this.length - 1; i++) {
       this.data[i] = this.data[i + 1];
     }
@@ -34,7 +34,7 @@ class Arr {
     this.length--;
   }
 
-  insert(index: ArrayIndex, element: any) {
+  public insert(index: number, element: any): void {
     for (let i = this.length - index; i > 0; i--) {
       this.data[i + 1] = this.data[i];
     }
@@ -43,15 +43,19 @@ class Arr {
     this.length++;
   }
 
-  prepend(element: ArrayElement) {
+  public prepend(element: ArrayElement): void {
     this.insert(0, element);
   }
 
-  pop() {
+  public pop(): ArrayElement {
     let element = this.data[this.length - 1];
     delete this.data[this.length - 1];
 
     return element;
+  }
+
+  public size(): number {
+    return this.length;
   }
 }
 
