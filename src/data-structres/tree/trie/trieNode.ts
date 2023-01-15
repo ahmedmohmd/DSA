@@ -2,7 +2,7 @@ class TrieNode {
   private children: {
     [key: string]: TrieNode;
   };
-  private isEndOfWord: boolean;
+  isEndOfWord: boolean;
   value: string;
 
   constructor(value: string = "") {
@@ -12,10 +12,10 @@ class TrieNode {
   }
 
   public removeChild(char: string) {
-    const removeChild = this.children[char];
+    const removedChild = this.children[char];
     delete this.children[char];
 
-    return removeChild;
+    return removedChild;
   }
 
   public hasChild(char: string) {
@@ -30,15 +30,19 @@ class TrieNode {
     return Boolean(this.children);
   }
 
-  public addChild(char: string) {
+  public addChild(char: string): void {
     this.children[char] = new TrieNode(char);
   }
 
-  public endWord() {
-    this.isEndOfWord = true;
+  public setEndOfWord(value: boolean): void {
+    this.isEndOfWord = value;
   }
 
-  get getChildren() {
+  public getEndOfWord(): boolean {
+    return this.isEndOfWord === true;
+  }
+
+  public getChildren() {
     return this.children;
   }
 }

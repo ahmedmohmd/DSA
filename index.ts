@@ -1,9 +1,11 @@
-import QuickSort from "./src/algorithms/sorting/quickSort";
+import Trie from "./src/data-structres/tree/trie/trie";
 
-const array = [4, 3, 2, 1, 8, 7, 5, 5];
+const trie = new Trie();
+trie.insert("car");
+trie.insert("cat");
 
-let q = new QuickSort();
+// console.log(trie.findWords("c"));
 
-q.sort(array);
-
-console.log(array);
+trie.remove("car");
+trie.remove("cat");
+console.log(JSON.stringify(trie));
