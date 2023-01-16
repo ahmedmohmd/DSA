@@ -75,7 +75,7 @@ class LinkedList {
 
   public at(index: number): LinkedNode {
     const targetNode = this.traverseToIndex(index);
-    return targetNode.value;
+    return targetNode;
   }
 
   public reverse(): void {
