@@ -4,8 +4,8 @@
  */
 
 class BinarySearch {
-  public search(array: any[], target: any): any {
-    return this.doSearch(array, target, 0, array.length - 1);
+  public search(array: any[], target: any, start?: number, end?: number): any {
+    return this.doSearch(array, target, start || 0, end || array.length - 1);
   }
 
   private doSearch(array: any[], target: any, start: number, end: number): any {
