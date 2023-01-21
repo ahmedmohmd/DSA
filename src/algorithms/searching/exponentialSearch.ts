@@ -1,5 +1,10 @@
 import BinarySearch from "./binarySearch";
 
+/**
+ * ? Important Note:
+ * ? You should Input and Sorted Array.
+ */
+
 class ExponentialSearch {
   public search(array: number[], target: number): number {
     let bound: number = 1;
