@@ -7,7 +7,7 @@ class AVLTree {
     this.root = null;
   }
 
-  insert(value: number): void {
+  public insert(value: number): void {
     let node = new AVLNode(value);
 
     if (!this.root) {
@@ -67,14 +67,10 @@ class AVLTree {
 
   private updatHeights() {
     const result = this.bfs().reverse();
+
     result.map((node) => {
       if (node) {
-        node.height =
-          Math.max(
-            this.getHeight(node.leftChild),
-            this.getHeight(node.rightChild)
-          ) + 1;
-
+        this.setHeight(node);
         this.balance(node as AVLNode);
       }
     });

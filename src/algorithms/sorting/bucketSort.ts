@@ -7,7 +7,7 @@ class BucketSort {
 
     let k: number = 0;
     let current: LinkedNode = buckets.head;
-    while (current.next) {
+    while (current) {
       current.value.sort((a, b) => a - b);
 
       for (let number of current.value) {
@@ -29,7 +29,7 @@ class BucketSort {
     }
 
     for (let item of array) {
-      buckets.at(item / bucketsNumber).value.push(item);
+      buckets.at(Math.floor(item / bucketsNumber)).value.push(item);
     }
 
     return buckets;

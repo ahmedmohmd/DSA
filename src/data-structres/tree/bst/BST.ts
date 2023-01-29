@@ -36,10 +36,9 @@ class BST {
   }
 
   public lookup(value: number): boolean {
-    let current = this.root;
-
     if (!this.root) return false;
 
+    let current = this.root;
     while (current) {
       if (current.value > value) {
         current = current.left;
