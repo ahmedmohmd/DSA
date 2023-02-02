@@ -2,9 +2,11 @@
 
 ## Description
 
-Mementro Design Pattern is Used to Solve **Undo** Funcionlety in Software Design.
+Memento Design Pattern is Used to Solve **Undo** Functionlety in Software Design.
 
-## UML Shaep
+In This Source Code We Used a Document as **Orginator**.
+
+## UML for Memento Pattern
 
 <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
 <img src="./memento.png" alt="UML for Memnto Pattern" />
