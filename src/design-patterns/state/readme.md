@@ -69,5 +69,5 @@ So Know We can Implement our State Design Pattern.
 ## UML for State Pattern
 
 <div style="width: 100%; display: flex; justify-content: center; align-items: center; border-radius: 15px;">
-<img src="./State-pattern.png" alt="UML for State Pattern" />
+<img src="./state-pattern.png" alt="UML for State Pattern" />
 </div>
