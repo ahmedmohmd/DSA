@@ -1,18 +1,19 @@
-import Document from "./src/design-patterns/memento/Document";
-import History from "./src/design-patterns/memento/History";
+import BrowserHistory from "./src/design-patterns/iterator/BrowserHistory";
 
-const doc = new Document();
-const his = new History();
+const his = new BrowserHistory<string>();
+his.push("Ahmed");
+his.push("Mohamed");
+his.push("Mahmoud");
 
-doc.setWord("Ahmed");
-his.push(doc.createState());
+const iterator = his.createIterator();
+// his.pop();
+// his.pop();
 
-doc.setWord("Mohamed");
-his.push(doc.createState());
+while (iterator.isNext()) {
+  console.log(iterator.current());
+  iterator.next();
+}
 
-doc.setWord("Mahmoud");
-doc.restore(his.pop());
-doc.restore(his.pop());
+// console.log(iterator.current());
 
-console.log(JSON.stringify(doc));
-console.log(JSON.stringify(his));
+console.log(his);
