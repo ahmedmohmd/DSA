@@ -1,4 +1,4 @@
-import DocumentState from "./DocumentState";
+import DocumentState from "./document-state";
 
 class Document {
   private word: string;
@@ -11,7 +11,7 @@ class Document {
     this.word = state.getWord;
   }
 
-  public setWord(word: string): void {
+  public write(word: string): void {
     this.word = word;
   }
 }

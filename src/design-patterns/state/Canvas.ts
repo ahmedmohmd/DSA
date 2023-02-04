@@ -1,18 +1,17 @@
 import Tool from "./Tool";
-
 class Canvas {
-  state: Tool;
+  currentTool: Tool;
 
-  setState(state: Tool): void {
-    this.state = state;
+  setState(tool: Tool): void {
+    this.currentTool = tool;
   }
 
   mouseUp(): void {
-    this.state.mouseUp();
+    this.currentTool.mouseUp();
   }
 
   mouseDown(): void {
-    this.state.mouseDown();
+    this.currentTool.mouseDown();
   }
 }
 

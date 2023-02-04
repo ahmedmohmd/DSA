@@ -1,5 +1,4 @@
-import ArrayIetrator from "./ArrayIterator";
-import Iterator from "./Iterator";
+import ArrayIetrator from "./array-iterator";
 
 class BrowserHistory<T> {
   private urls: T[];

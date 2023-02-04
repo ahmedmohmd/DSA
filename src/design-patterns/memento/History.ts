@@ -1,4 +1,4 @@
-import DocumentState from "./DocumentState";
+import DocumentState from "./document-state";
 
 class History {
   private stack: DocumentState[];

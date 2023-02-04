@@ -1,4 +1,4 @@
-import BrowserHistory from "./BrowserHistory";
+import BrowserHistory from "./browser-history";
 
 class ArrayIetrator<T> implements Iterator<T> {
   private history: BrowserHistory<T>;
