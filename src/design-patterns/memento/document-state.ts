@@ -1,12 +1,12 @@
 class DocumentState {
-  private word: string;
+  private content: string;
 
-  constructor(word: string) {
-    this.word = word;
+  constructor(content: string) {
+    this.content = content;
   }
 
-  public get getWord(): string {
-    return this.word;
+  public get getContent(): string {
+    return this.content;
   }
 }
 

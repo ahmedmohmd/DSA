@@ -10,7 +10,7 @@ class ImageStorage {
     this.filter = filter;
   }
 
-  store(filename: string) {
+  store(filename: string): void {
     this.compressor.compress(filename);
     this.filter.apply(filename);
   }

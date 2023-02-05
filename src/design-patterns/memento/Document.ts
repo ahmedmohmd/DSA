@@ -1,18 +1,18 @@
 import DocumentState from "./document-state";
 
 class Document {
-  private word: string;
+  private content: string;
 
   public createState(): DocumentState {
-    return new DocumentState(this.word);
+    return new DocumentState(this.content);
   }
 
   public restore(state: DocumentState): void {
-    this.word = state.getWord;
+    this.content = state.getContent;
   }
 
-  public write(word: string): void {
-    this.word = word;
+  public write(content: string): void {
+    this.content = content;
   }
 }
 
