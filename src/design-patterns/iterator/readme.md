@@ -21,6 +21,6 @@ Iterator Give to The Customer a Fixed API Iterator and desnot change if You Chan
 
 ## UML for Iterator Pattern
 
-<div style="width: 100%;">
-<img style="width: 100%; display: flex; justify-content: center; align-items: center; border-radius: 15px;" src="./iterator-pattern.png" alt="UML for Iterator Pattern" />
+<div style="width: 100%; display: flex; justify-content: center; align-items: center; border-radius: 15px;">
+<img src="./iterator-pattern.png" alt="UML for Iterator Pattern" />
 </div>
