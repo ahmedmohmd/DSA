@@ -8,7 +8,7 @@ class AddCustomerCommand implements Command {
     this.service = service;
   }
 
-  public excute() {
+  public excute(): void {
     this.service.addCustomer();
   }
 }

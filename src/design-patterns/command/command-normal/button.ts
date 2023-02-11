@@ -9,7 +9,7 @@ class Button {
     this.command = command;
   }
 
-  public click() {
+  public click(): void {
     this.command.excute();
   }
 }

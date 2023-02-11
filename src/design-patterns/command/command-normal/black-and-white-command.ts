@@ -1,7 +1,7 @@
 import Command from "./command";
 
 class BlackAndWhiteCommand implements Command {
-  excute() {
+  excute(): void {
     console.log("Black and White Command");
   }
 }

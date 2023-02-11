@@ -11,7 +11,7 @@ class CompositeCommand implements Command {
     this.commands.push(command);
   }
 
-  excute() {
+  public excute(): void {
     for (let command of this.commands) {
       command.excute();
     }

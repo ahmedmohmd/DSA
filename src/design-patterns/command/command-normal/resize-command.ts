@@ -1,7 +1,7 @@
 import Command from "./command";
 
 class ResizeCommand implements Command {
-  excute() {
+  excute(): void {
     console.log("Resize Command");
   }
 }
