@@ -11,7 +11,7 @@ class BrowserHistory<T> {
     this.urls.push(url);
   }
 
-  public pop(): T {
+  public pop(): T | undefined {
     return this.urls.pop();
   }
 
