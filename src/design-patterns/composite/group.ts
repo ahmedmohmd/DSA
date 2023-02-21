@@ -1,19 +1,18 @@
 import Component from "./component";
-import Shape from "./shape";
 
 class Group implements Component {
-  private objects: Component[];
+  private _objects: Component[];
 
   constructor() {
-    this.objects = [];
+    this._objects = [];
   }
 
   public add(object: Component): void {
-    this.objects.push(object);
+    this._objects.push(object);
   }
 
   public render(): void {
-    for (let shape of this.objects) {
+    for (let shape of this._objects) {
       shape.render();
     }
   }

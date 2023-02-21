@@ -1,14 +1,14 @@
 import Component from "./component";
 
 class Shape implements Component {
-  private type: string;
+  private _type: string;
 
   constructor(type: string) {
-    this.type = type;
+    this._type = type;
   }
 
   public render(): void {
-    console.log(this.type, " Rendered Successfully...");
+    console.log(this._type, " Rendered Successfully...");
   }
 }
 
