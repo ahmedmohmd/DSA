@@ -1,3 +1,3 @@
-import Main from "./src/design-patterns/decorator/main";
+import Main from "./src/design-patterns/facade/main";
 
 Main.render();
