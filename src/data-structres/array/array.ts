@@ -35,7 +35,7 @@ class Arr {
   }
 
   public insert(index: number, element: any): void {
-    for (let i = this.length - index; i > 0; i--) {
+    for (let i = this.length - 1; i >= index; i--) {
       this.data[i + 1] = this.data[i];
     }
 
