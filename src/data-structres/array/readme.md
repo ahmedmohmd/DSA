@@ -4,11 +4,12 @@ An array is a data structure that stores a collection of elements of the same ty
 
 # Time and Space Complexity
 
-| Access    | O(1) | O(1)   | O(1) | O(n) |
-| --------- | ---- | ------ | ---- | ---- |
-| Search    | O(1) | O(n/2) | O(n) | O(1) |
-| Insertion | O(1) | O(n)   | O(n) | O(n) |
-| Deletion  | O(1) | O(n)   | O(n) | O(n) |
+| Process   | Best | Average | Best | Space Complexity |
+| --------- | ---- | ------- | ---- | ---------------- |
+| Access    | O(1) | O(1)    | O(1) | O(n)             |
+| Search    | O(1) | O(n/2)  | O(n) | O(1)             |
+| Insertion | O(1) | O(n)    | O(n) | O(n)             |
+| Deletion  | O(1) | O(n)    | O(n) | O(n)             |
 
 - Accessing an element in an array is a constant time operation with a complexity of O(1).
 
