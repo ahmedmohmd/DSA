@@ -1,5 +1,5 @@
 class SelectionSort {
-  sort(array: number[]) {
+  static sort(array: number[]) {
     for (let i = 0; i < array.length; i++) {
       let min = i;
 
