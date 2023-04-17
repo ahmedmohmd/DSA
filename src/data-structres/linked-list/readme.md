@@ -18,11 +18,11 @@ In this example, head points to the first node in the list, and tail points to t
 
 There are several types of linked lists, including:
 
-- Singly Linked List: A singly linked list is a linked list in which each node contains a data element and a reference to the next node in the sequence.
+- **Singly Linked List**: A singly linked list is a linked list in which each node contains a data element and a reference to the next node in the sequence.
 
-- Doubly Linked List: A doubly linked list is a linked list in which each node contains a data element and references to the next and previous nodes in the sequence.
+- **Doubly Linked List**: A doubly linked list is a linked list in which each node contains a data element and references to the next and previous nodes in the sequence.
 
-- Circular Linked List: A circular linked list is a linked list in which the tail node points back to the head node, forming a loop.
+- **Circular Linked List**: A circular linked list is a linked list in which the tail node points back to the head node, forming a loop.
 
 ## Complexity Analysis
 

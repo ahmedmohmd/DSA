@@ -1,5 +1,5 @@
-import List from "../../data-structres/linkedlist/linkedList";
-import LinkedNode from "../../data-structres/linkedlist/LinkedNode";
+import List from "../../data-structres/linked-list/linkedList";
+import LinkedNode from "../../data-structres/linked-list/LinkedNode";
 
 class BucketSort {
   public sort(array: number[], bucketsNumber: number): number[] {
