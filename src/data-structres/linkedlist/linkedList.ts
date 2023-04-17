@@ -14,7 +14,7 @@ class LinkedList {
   public insert(index, value): void {
     const node = new LinkedNode(value);
     const leader = this.traverseToIndex(index - 1);
-    const pointer = this.head.next;
+    const pointer = leader.next;
 
     node.next = pointer;
     leader.next = node;
@@ -54,7 +54,7 @@ class LinkedList {
       this.head = node;
       this.tail = node;
     } else {
-      this.head.next = node;
+      node.next = this.head;
       this.head = node;
     }
 
@@ -79,23 +79,20 @@ class LinkedList {
   }
 
   public reverse(): void {
-    if (this.size < 2) {
-      return;
-    }
-
-    let first = this.head;
     this.tail = this.head;
-    let second = first.next;
 
-    while (second) {
-      const temp = second.next;
-      second.next = first;
-      first = second;
-      second = temp;
+    let current = this.head;
+    let previous = null;
+    let next = null;
+
+    while (current !== null) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
     }
 
-    this.head.next = null;
-    this.head = first;
+    this.head = previous;
   }
 
   public getAllValues(): any[] {
