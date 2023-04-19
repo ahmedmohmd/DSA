@@ -1,4 +1,4 @@
-import StackNode from "./stackNode";
+import StackNode from "./stack-node";
 
 class Stack {
   private size: number;
