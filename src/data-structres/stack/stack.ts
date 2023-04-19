@@ -31,12 +31,16 @@ class Stack {
 
   public pop(): any {
     if (this.size === 0) {
-      return null;
+      return undefined;
     }
 
     if (this.size === 1) {
+      const poppedItem = this.top;
+      this.top = null;
+      this.bottom = null;
       this.size--;
-      return this.top.value;
+
+      return poppedItem.value;
     }
 
     const poppedItem = this.top;

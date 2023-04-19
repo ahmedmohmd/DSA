@@ -26,10 +26,11 @@ Collisions occur when two or more keys hash to the same index in the array. Ther
 
 The complexity of hash table operations depends on the quality of the hash function, the size of the array, and the number of collisions. In the best case, where there are no collisions, hash table operations have a constant time complexity of O(1). In the worst case, where all keys hash to the same index, the time complexity of hash table operations is O(n), where n is the number of keys.
 
-| Insert | O(1) | O(n) |
-| ------ | ---- | ---- |
-| Delete | O(1) | O(n) |
-| Lookup | O(1) | O(n) |
+| Operation | Best | Worst |
+| --------- | ---- | ----- |
+| Insert    | O(1) | O(n)  |
+| Delete    | O(1) | O(n)  |
+| Lookup    | O(1) | O(n)  |
 
 ## Conclusion
 
