@@ -1,4 +1,4 @@
-import LinkedNode from "./LinkedNode";
+import LinkedNode from "./linked-node";
 
 class LinkedList {
   head: LinkedNode;

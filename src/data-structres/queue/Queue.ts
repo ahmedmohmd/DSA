@@ -1,4 +1,4 @@
-import QueueNode from "./QueueNode";
+import QueueNode from "./queue-node";
 
 class Queue {
   private size: number;
