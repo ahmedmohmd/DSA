@@ -14,5 +14,6 @@
 
 // // graph.removeVertex("B");
 
-// graph.depthFirstTraverse("G");
+// // graph.depthFirstTraverseRec("A");
+// graph.breathFirstTraverse("g");
 // // graph.print();

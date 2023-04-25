@@ -56,7 +56,7 @@ class Graph {
     this.adjancyList.get(fromNode).splice(targetIndex, 1);
   }
 
-  public depthFirstTraverse(
+  public depthFirstTraverseRec(
     root: string,
     visited: Set<GraphNode> = new Set()
   ): void {
@@ -71,7 +71,59 @@ class Graph {
 
     for (let node of this.adjancyList.get(rootNode)) {
       if (!visited.has(node)) {
-        this.depthFirstTraverse(node.label, visited);
+        this.depthFirstTraverseRec(node.label, visited);
+      }
+    }
+  }
+
+  public depthFirstTraverseIter(root: string): void {
+    const rooteNode = this.nodes.get(root);
+
+    if (!rooteNode) return;
+
+    const stack: Array<GraphNode> = [rooteNode];
+    const visited: Set<GraphNode> = new Set();
+
+    while (stack.length) {
+      const current = stack.pop();
+
+      if (visited.has(current)) {
+        continue;
+      }
+
+      console.log(current.label);
+      visited.add(current);
+
+      for (let node of this.adjancyList.get(current)) {
+        if (!visited.has(node)) {
+          stack.push(node);
+        }
+      }
+    }
+  }
+
+  public breathFirstTraverse(root: string): void {
+    const rooteNode = this.nodes.get(root);
+
+    if (!rooteNode) return;
+
+    const queue: Array<GraphNode> = [rooteNode];
+    const visited: Set<GraphNode> = new Set();
+
+    while (queue.length) {
+      const current = queue.shift();
+
+      if (visited.has(current)) {
+        continue;
+      }
+
+      console.log(current.label);
+      visited.add(current);
+
+      for (let node of this.adjancyList.get(current)) {
+        if (!visited.has(node)) {
+          queue.push(node);
+        }
       }
     }
   }
