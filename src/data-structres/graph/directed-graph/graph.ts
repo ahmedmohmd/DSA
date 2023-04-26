@@ -127,6 +127,38 @@ class Graph {
       }
     }
   }
+
+  public topologicalSort(): string[] {
+    const stack: Array<GraphNode> = [];
+    const result: Array<string> = [];
+
+    for (let node of this.nodes.values()) {
+      this.sort(node, stack);
+    }
+
+    while (stack.length > 0) {
+      result.push(stack.pop().label);
+    }
+
+    return result;
+  }
+
+  private sort(
+    node: GraphNode,
+    stack: Array<GraphNode>,
+    visited: Set<GraphNode> = new Set()
+  ) {
+    if (visited.has(node)) return;
+
+    visited.add(node);
+
+    for (let neighbor of this.adjancyList.get(node)) {
+      this.sort(neighbor, stack, visited);
+    }
+
+    stack.push(node);
+  }
+
   print(): void {
     for (let item of this.adjancyList) {
       console.log(
