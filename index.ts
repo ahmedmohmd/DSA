@@ -1,21 +1,23 @@
-import Graph from "./src/data-structres/graph/directed-graph/graph";
+// import Graph from "./src/data-structres/graph/directed-graph/graph";
 
-const graph = new Graph();
+// const graph = new Graph();
 
-graph.addVertex("X");
-graph.addVertex("A");
-graph.addVertex("B");
-graph.addVertex("P");
+// graph.addVertex("X");
+// graph.addVertex("A");
+// graph.addVertex("B");
+// graph.addVertex("P");
 
-graph.addEdge("X", "A");
-graph.addEdge("X", "B");
-graph.addEdge("A", "P");
-graph.addEdge("B", "P");
+// graph.addEdge("X", "A");
+// graph.addEdge("X", "B");
+// graph.addEdge("A", "P");
+// graph.addEdge("B", "P");
 
-console.log(graph.topologicalSort());
+// // graph.breathFirstTraverse("X");
 
-// graph.removeVertex("B");
+// console.log(graph.topologicalSort());
 
-// graph.depthFirstTraverseRec("A");
-// graph.breathFirstTraverse("g");
-// graph.print();
+// // graph.removeVertex("B");
+
+// // graph.depthFirstTraverseRec("A");
+// // graph.breathFirstTraverse("g");
+// // graph.print();

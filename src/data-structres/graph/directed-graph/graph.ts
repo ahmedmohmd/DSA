@@ -131,9 +131,10 @@ class Graph {
   public topologicalSort(): string[] {
     const stack: Array<GraphNode> = [];
     const result: Array<string> = [];
+    const visited: Set<GraphNode> = new Set();
 
     for (let node of this.nodes.values()) {
-      this.sort(node, stack);
+      this.sort(node, stack, visited);
     }
 
     while (stack.length > 0) {
@@ -146,7 +147,7 @@ class Graph {
   private sort(
     node: GraphNode,
     stack: Array<GraphNode>,
-    visited: Set<GraphNode> = new Set()
+    visited: Set<GraphNode>
   ) {
     if (visited.has(node)) return;
 
@@ -159,7 +160,52 @@ class Graph {
     stack.push(node);
   }
 
-  print(): void {
+  public hasCycle(): boolean {
+    let all: Set<GraphNode> = new Set(this.nodes.values());
+    let visiting: Set<GraphNode> = new Set();
+    let visited: Set<GraphNode> = new Set();
+
+    while (all.size > 0) {
+      let current = Array.from(all).pop();
+
+      if (this.isCyclic(current, all, visiting, visited)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private isCyclic(
+    node: GraphNode,
+    all: Set<GraphNode>,
+    visiting: Set<GraphNode>,
+    visited: Set<GraphNode>
+  ): boolean {
+    all.delete(node);
+    visiting.add(node);
+
+    for (let neighbor of this.adjancyList.get(node)) {
+      if (visited.has(neighbor)) {
+        continue;
+      }
+
+      if (visiting.has(neighbor)) {
+        return true;
+      }
+
+      if (this.isCyclic(neighbor, all, visiting, visited)) {
+        return true;
+      }
+    }
+
+    visiting.delete(node);
+    visited.add(node);
+
+    return false;
+  }
+
+  public print(): void {
     for (let item of this.adjancyList) {
       console.log(
         `( ${item[0].label} ) Node: is Connected to => `,
