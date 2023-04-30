@@ -1,7 +1,6 @@
 import PriorityQueue from "../../heap/periorityQueue";
 import Edge from "./edge";
 import Node from "./node";
-import NodeEntry from "./node-entry";
 
 class Graph {
   nodes: Map<string, Node>;
@@ -97,6 +96,34 @@ class Graph {
     }
 
     return result;
+  }
+
+  public hasCycle(): boolean {
+    const visited: Set<Node> = new Set();
+
+    for (let node of this.nodes.values()) {
+      if (!visited.has(node) && this.isCyclic(node, null, visited)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private isCyclic(node: Node, parent: Node, visited: Set<Node>): boolean {
+    visited.add(node);
+
+    for (let edge of node.edges) {
+      if (edge.to === parent) {
+        continue;
+      }
+
+      if (visited.has(edge.to) || this.isCyclic(edge.to, node, visited)) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   public print(): void {
