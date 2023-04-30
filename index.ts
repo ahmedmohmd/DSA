@@ -1,23 +1,62 @@
-// import Graph from "./src/data-structres/graph/directed-graph/graph";
+import { PeriorityQueue } from "./src/data-structres/heap";
 
-// const graph = new Graph();
+const getShortestPath = (from: string, to: string) => {
+  const fromNode = this.nodes.get(from);
+  if (!fromNode) {
+    throw new Error(`Could not find FromNode`);
+  }
 
-// graph.addVertex("X");
-// graph.addVertex("A");
-// graph.addVertex("B");
-// graph.addVertex("P");
+  const toNode = this.nodes.get(to);
+  if (!toNode) {
+    throw new Error(`Could not find ToNode`);
+  }
 
-// graph.addEdge("X", "A");
-// graph.addEdge("X", "B");
-// graph.addEdge("A", "P");
-// graph.addEdge("B", "P");
+  const distances: Map<Node, number> = new Map();
 
-// // graph.breathFirstTraverse("X");
+  for (let node of this.nodes) {
+    distances.set(node, Number.MAX_VALUE);
+  }
 
-// console.log(graph.topologicalSort());
+  distances.set(fromNode, 0);
 
-// // graph.removeVertex("B");
+  return buildPath(fromNode, toNode, distances);
+};
 
-// // graph.depthFirstTraverseRec("A");
-// // graph.breathFirstTraverse("g");
-// // graph.print();
+const buildPath = (fromNode, toNode, distances) => {
+  const queue = new PeriorityQueue()
+  queue.enqueue(fromNode,0)
+
+  const visisted = new Set()
+  const previouses = new Map()
+
+  while(queue.size > 0) {
+    const current = queue.dequeue()
+    visisted.add(current)
+
+    for(let edge of current.edges) {
+      if(visisted.has(edge.to)) {
+        continue
+      }
+
+      const newDistance = distances.get(fromNode) + edge.wight
+      if(newDistance < distances.get(edge.to)) {
+        distances.set(edge.to, newDistance)
+        previouses.set(edge.to, current)
+        queue.enqueue(edge.to)
+      }
+    }
+  }
+
+  const stack = []
+  stack.push(toNode)
+  let previous = previouses.get(toNode)
+
+  while(previous !== null) {
+    stack.push(previous)
+    previous = previouses.get(previous)
+  }
+
+  
+  return distances
+  // queue.enqueue()
+};
