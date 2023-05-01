@@ -24,8 +24,8 @@ class Graph {
       throw new Error("Sorry, 'To Node' not Found!");
     }
 
-    fromNode.edges.push(new Edge(toNode, weight));
-    toNode.edges.push(new Edge(fromNode, weight));
+    fromNode.edges.push(new Edge(fromNode, toNode, weight));
+    toNode.edges.push(new Edge(fromNode, toNode, weight));
   }
 
   public getShortestDistance(from: string, to: string): Array<Node> {
@@ -64,11 +64,12 @@ class Graph {
 
     while (queue.size > 0) {
       const current = queue.dequeue();
+
+      if (visited.has(current)) continue;
+
       visited.add(current);
 
       for (let edge of current.edges) {
-        if (visited.has(edge.to)) continue;
-
         const newDistance = distances.get(current) + edge.weight;
 
         if (newDistance < distances.get(edge.to)) {
@@ -124,6 +125,41 @@ class Graph {
     }
 
     return false;
+  }
+
+  public minimumSpanningTree(): any {
+    const tree = new Graph();
+
+    if (!this.nodes) return tree;
+
+    const edges = new PriorityQueue<Edge>();
+
+    const startNode = this.nodes.values().next().value;
+
+    startNode.edges.map((edge) => {
+      edges.enqueue(edge, edge.wight);
+    });
+
+    tree.addNode(startNode.value);
+
+    while (this.nodes.size > tree.nodes.size) {
+      const minEdge = edges.dequeue();
+
+      if (tree.nodes.has(minEdge.to.value)) {
+        continue;
+      }
+
+      tree.addNode(minEdge.to.value);
+      tree.addEdge(minEdge.from.value, minEdge.to.value, minEdge.weight);
+
+      for (let edge of minEdge.to.edges) {
+        if (!tree.nodes.has(edge.to.value)) {
+          edges.enqueue(edge, edge.weight);
+        }
+      }
+    }
+
+    return tree;
   }
 
   public print(): void {

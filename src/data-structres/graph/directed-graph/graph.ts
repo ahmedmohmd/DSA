@@ -95,9 +95,7 @@ class Graph {
       visited.add(current);
 
       for (let node of this.adjancyList.get(current)) {
-        if (!visited.has(node)) {
-          stack.push(node);
-        }
+        stack.push(node);
       }
     }
   }

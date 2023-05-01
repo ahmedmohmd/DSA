@@ -1,40 +1,24 @@
-const hasCycle = () => {
-  const visisted = new Set();
+import Graph from "./src/data-structres/graph/undirected-graph/graph";
 
-  for (let node of this.nodes) {
-    if (!visisted.has(node)) {
-      //  Recursion funcion
-    }
-  }
-};
+let graph = new Graph();
 
-const isCyclic = (node, parent, visisted) => {
-  visisted.push(node);
+graph.addNode("A");
+graph.addNode("B");
+graph.addNode("C");
+graph.addNode("D");
 
-  for (let edge of node.edges) {
-    if (edge.to === parent) {
-      continue;
-    }
+graph.addEdge("A", "B", 3);
+graph.addEdge("B", "D", 4);
+graph.addEdge("C", "D", 5);
+graph.addEdge("A", "C", 1);
+graph.addEdge("B", "C", 2);
 
-    if (visisted.has(edge) || isCyclic(node, parent, visisted)) {
-      return true;
-    }
-  }
+const tree = graph.minimumSpanningTree();
 
-  return false;
-};
+tree.print();
+// console.log();
 
-// import Graph from "./src/data-structres/graph/undirected-graph/graph";
-
-// let graph = new Graph();
-
-// graph.addNode("A");
-// graph.addNode("B");
-// graph.addNode("C");
-
-// graph.addEdge("A", "B", 10);
-// graph.addEdge("B", "C", 4);
 // // graph.addEdge("C", "A", 4);
 // // graph.addEdge("A", "B", 4);
 
-// console.log(graph.hasCycle());
+// console.log(graph.getShortestDistance("A", "E"));
