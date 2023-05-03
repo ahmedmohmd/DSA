@@ -1,4 +1,4 @@
-import PriorityQueue from "../../heap/periorityQueue";
+import PriorityQueue from "../../heap/utils/periority-queue";
 import Edge from "./edge";
 import Node from "./node";
 
@@ -28,7 +28,7 @@ class Graph {
     toNode.edges.push(new Edge(fromNode, toNode, weight));
   }
 
-  public getShortestDistance(from: string, to: string): Array<Node> {
+  public getShortestPath(from: string, to: string): Array<Node> {
     const fromNode = this.nodes.get(from);
     if (!fromNode) {
       throw new Error("Sorry, 'From Node' not Found!");
@@ -93,7 +93,7 @@ class Graph {
 
     const result = [];
     while (stack.length > 0) {
-      result.push(stack.pop());
+      result.push(stack.pop().value);
     }
 
     return result;
@@ -137,7 +137,7 @@ class Graph {
     const startNode = this.nodes.values().next().value;
 
     startNode.edges.map((edge) => {
-      edges.enqueue(edge, edge.wight);
+      edges.enqueue(edge, edge.weight);
     });
 
     tree.addNode(startNode.value);

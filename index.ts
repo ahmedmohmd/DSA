@@ -1,24 +1,9 @@
-import Graph from "./src/data-structres/graph/undirected-graph/graph";
+import HeapSort from "./src/data-structres/heap/utils/heap-sort";
 
-let graph = new Graph();
+const array = [1, 5, 3, 9, 8, 6, 5, 2];
 
-graph.addNode("A");
-graph.addNode("B");
-graph.addNode("C");
-graph.addNode("D");
+let heapsort = new HeapSort(array);
 
-graph.addEdge("A", "B", 3);
-graph.addEdge("B", "D", 4);
-graph.addEdge("C", "D", 5);
-graph.addEdge("A", "C", 1);
-graph.addEdge("B", "C", 2);
+heapsort.sort(false);
 
-const tree = graph.minimumSpanningTree();
-
-tree.print();
-// console.log();
-
-// // graph.addEdge("C", "A", 4);
-// // graph.addEdge("A", "B", 4);
-
-// console.log(graph.getShortestDistance("A", "E"));
+console.log(heapsort.data);

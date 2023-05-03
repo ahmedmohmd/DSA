@@ -118,46 +118,6 @@ class Heap {
     return this.size;
   }
 
-  public heapifyp(arr: number[] = this.data) {
-    let lastParent = arr.length / 2 - 1;
-    for (let i = lastParent; i >= 0; i--) {
-      this.heapify(arr, i);
-    }
-
-    return arr;
-  }
-
-  private heapify(arr: number[], index: number) {
-    let largerIndex = index;
-
-    let leftIndex = index * 2 + 1;
-    if (leftIndex < arr.length && arr[leftIndex] > arr[largerIndex]) {
-      largerIndex = leftIndex;
-    }
-
-    let rightIndex = index * 2 + 2;
-    if (rightIndex < arr.length && arr[rightIndex] > arr[largerIndex]) {
-      largerIndex = rightIndex;
-    }
-
-    if (index === largerIndex) return;
-
-    [arr[index], arr[largerIndex]] = [arr[largerIndex], arr[index]];
-    this.heapify(arr, largerIndex);
-  }
-
-  public getKthLargestValue(order: number, arr: number[] = this.data) {
-    let i = 0;
-    let element: number | undefined = 0;
-
-    while (i < order) {
-      element = this.remove();
-      i++;
-    }
-
-    return element;
-  }
-
   public get getData() {
     return this.data;
   }
