@@ -8,6 +8,8 @@ A heap is a specialized data structure that allows for efficient access and mani
 
 Heaps are commonly used in computer science, especially in algorithms where a large number of elements need to be processed in priority order. Some common use cases for heaps include finding the kth-largest value in a set of elements, sorting an array, implementing priority queues, and performing heapify operations on arrays.
 
+---
+
 ## Importance of Heaps and Their Applications
 
 ### Kth-Largest Value
