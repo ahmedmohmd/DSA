@@ -3,7 +3,7 @@
 A heap is a specialized data structure that allows for efficient access and manipulation of elements based on their priority. In a heap, each element is associated with a priority value and elements are stored in such a way that the highest (or lowest) priority element can be quickly accessed.
 
 <div style="margin: auto; position: relative; left: 50%; transform: translateX(-50%);">
-  <img src="./images/heap.png" style="width: 50%; margin: auto;" />
+  <img src="./images/heap.png" style="width: 50%; margin-left: 50%;" />
 </div>
 
 Heaps are commonly used in computer science, especially in algorithms where a large number of elements need to be processed in priority order. Some common use cases for heaps include finding the kth-largest value in a set of elements, sorting an array, implementing priority queues, and performing heapify operations on arrays.
