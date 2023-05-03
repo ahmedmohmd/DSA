@@ -2,7 +2,7 @@
 
 A heap is a specialized data structure that allows for efficient access and manipulation of elements based on their priority. In a heap, each element is associated with a priority value and elements are stored in such a way that the highest (or lowest) priority element can be quickly accessed.
 
-<div style="margin: auto; ">
+<div style="margin: auto; position: rleative; left: 50%; transform: translateX(-50%);">
   <img src="./images/heap.png" style="width: 50%; margin: auto;" />
 </div>
 
