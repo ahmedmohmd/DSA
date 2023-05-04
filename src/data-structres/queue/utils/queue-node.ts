@@ -1,9 +1,10 @@
 class QueueNode {
   value: any;
-  next: QueueNode;
+  next: QueueNode | null;
 
-  constructor(value) {
+  constructor(value: any) {
     this.value = value;
+    this.next = null;
   }
 }
 

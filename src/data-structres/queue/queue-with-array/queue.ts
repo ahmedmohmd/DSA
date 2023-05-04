@@ -1,4 +1,4 @@
-import QueueNode from "./queue-node";
+import QueueNode from "../utils/queue-node";
 
 class QueueByArray {
   private data: any[];

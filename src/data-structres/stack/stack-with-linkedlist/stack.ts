@@ -1,9 +1,9 @@
-import StackNode from "./stack-node";
+import StackNode from "../utils/stack-node";
 
 class Stack {
   private size: number;
-  private top: StackNode;
-  private bottom: StackNode;
+  private top: StackNode | null;
+  private bottom: StackNode | null;
 
   constructor() {
     this.top = null;
@@ -11,7 +11,7 @@ class Stack {
     this.size = 0;
   }
 
-  public peek(): StackNode {
+  public peek(): StackNode | null {
     return this.top;
   }
 
@@ -30,7 +30,7 @@ class Stack {
   }
 
   public pop(): any {
-    if (this.size === 0) {
+    if (this.top === null) {
       return undefined;
     }
 

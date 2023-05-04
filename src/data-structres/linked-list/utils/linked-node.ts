@@ -1,8 +1,8 @@
 class LinkedNode {
   value: any;
-  next: LinkedNode;
+  next: LinkedNode | null;
 
-  constructor(value) {
+  constructor(value: any) {
     this.value = value;
     this.next = null;
   }

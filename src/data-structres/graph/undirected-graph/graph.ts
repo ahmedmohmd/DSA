@@ -1,6 +1,6 @@
 import PriorityQueue from "../../heap/utils/periority-queue";
-import Edge from "./edge";
-import Node from "./node";
+import Edge from "./utils/edge";
+import Node from "./utils/node";
 
 class Graph {
   nodes: Map<string, Node>;

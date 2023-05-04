@@ -1,4 +1,4 @@
-import { default as GraphNode, default as Node } from "./graph-node";
+import { default as GraphNode, default as Node } from "./utils/graph-node";
 
 class Graph {
   nodes: Map<string, Node>;
@@ -25,7 +25,8 @@ class Graph {
     if (!toNode) {
       throw new Error("Sorry, 'To Node' not Found!");
     }
-    this.adjancyList.get(fromNode).push(toNode);
+
+    this.adjancyList.get(fromNode)!.push(toNode);
   }
 
   public removeVertex(value: string): void {
@@ -35,9 +36,9 @@ class Graph {
 
     for (let node of this.adjancyList.keys()) {
       const targetIndex = this.adjancyList
-        .get(node)
+        .get(node)!
         .findIndex((node) => node.label === targetNode.label);
-      this.adjancyList.get(node).splice(targetIndex, 1);
+      this.adjancyList.get(node)!.splice(targetIndex, 1);
     }
 
     this.adjancyList.delete(targetNode);
@@ -51,9 +52,9 @@ class Graph {
     if (!fromNode || !toNode) return;
 
     const targetIndex = this.adjancyList
-      .get(fromNode)
+      .get(fromNode)!
       .findIndex((node) => node.label === toNode.label);
-    this.adjancyList.get(fromNode).splice(targetIndex, 1);
+    this.adjancyList.get(fromNode)!.splice(targetIndex, 1);
   }
 
   public depthFirstTraverseRec(
@@ -69,7 +70,7 @@ class Graph {
     console.log(rootNode.label);
     visited.add(rootNode);
 
-    for (let node of this.adjancyList.get(rootNode)) {
+    for (let node of this.adjancyList.get(rootNode)!) {
       if (!visited.has(node)) {
         this.depthFirstTraverseRec(node.label, visited);
       }
@@ -84,8 +85,8 @@ class Graph {
     const stack: Array<GraphNode> = [rooteNode];
     const visited: Set<GraphNode> = new Set();
 
-    while (stack.length) {
-      const current = stack.pop();
+    while (stack.length > 0) {
+      const current = stack.pop()!;
 
       if (visited.has(current)) {
         continue;
@@ -94,7 +95,7 @@ class Graph {
       console.log(current.label);
       visited.add(current);
 
-      for (let node of this.adjancyList.get(current)) {
+      for (let node of this.adjancyList.get(current)!) {
         stack.push(node);
       }
     }
@@ -109,7 +110,7 @@ class Graph {
     const visited: Set<GraphNode> = new Set();
 
     while (queue.length) {
-      const current = queue.shift();
+      const current = queue.shift()!;
 
       if (visited.has(current)) {
         continue;
@@ -118,7 +119,7 @@ class Graph {
       console.log(current.label);
       visited.add(current);
 
-      for (let node of this.adjancyList.get(current)) {
+      for (let node of this.adjancyList.get(current)!) {
         if (!visited.has(node)) {
           queue.push(node);
         }
@@ -136,7 +137,7 @@ class Graph {
     }
 
     while (stack.length > 0) {
-      result.push(stack.pop().label);
+      result.push(stack.pop()!.label);
     }
 
     return result;
@@ -151,7 +152,7 @@ class Graph {
 
     visited.add(node);
 
-    for (let neighbor of this.adjancyList.get(node)) {
+    for (let neighbor of this.adjancyList.get(node)!) {
       this.sort(neighbor, stack, visited);
     }
 
@@ -164,7 +165,7 @@ class Graph {
     let visited: Set<GraphNode> = new Set();
 
     while (all.size > 0) {
-      let current = Array.from(all).pop();
+      let current = Array.from(all).pop()!;
 
       if (this.isCyclic(current, all, visiting, visited)) {
         return true;
@@ -183,7 +184,7 @@ class Graph {
     all.delete(node);
     visiting.add(node);
 
-    for (let neighbor of this.adjancyList.get(node)) {
+    for (let neighbor of this.adjancyList.get(node)!) {
       if (visited.has(neighbor)) {
         continue;
       }

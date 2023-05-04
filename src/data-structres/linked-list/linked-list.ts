@@ -1,8 +1,8 @@
-import LinkedNode from "./linked-node";
+import LinkedNode from "./utils/linked-node";
 
 class LinkedList {
-  head: LinkedNode;
-  tail: LinkedNode;
+  head: LinkedNode | null;
+  tail: LinkedNode | null;
   size: number;
 
   constructor() {
@@ -11,9 +11,14 @@ class LinkedList {
     this.tail = null;
   }
 
-  public insert(index, value): void {
+  public insert(index: number, value: any): void {
     const node = new LinkedNode(value);
     const leader = this.traverseToIndex(index - 1);
+
+    if (leader === null) {
+      throw new Error("Sorry, the index is not valid!");
+    }
+
     const pointer = leader.next;
 
     node.next = pointer;
@@ -21,7 +26,7 @@ class LinkedList {
     this.size++;
   }
 
-  private traverseToIndex(index: number): LinkedNode {
+  private traverseToIndex(index: number): LinkedNode | null {
     let step = 0;
     let current = this.head;
 
@@ -36,7 +41,7 @@ class LinkedList {
   public append(value: any): void {
     const node = new LinkedNode(value);
 
-    if (this.size === 0) {
+    if (this.head === null || this.tail === null) {
       this.head = node;
       this.tail = node;
     } else {
@@ -50,7 +55,7 @@ class LinkedList {
   public prepend(value: any): void {
     const node = new LinkedNode(value);
 
-    if (this.size === 0) {
+    if (this.head === null) {
       this.head = node;
       this.tail = node;
     } else {
@@ -65,6 +70,10 @@ class LinkedList {
     const leader = this.traverseToIndex(index - 1);
     const element = this.traverseToIndex(index);
 
+    if (!element || !leader) {
+      return;
+    }
+
     leader.next = element.next;
     this.size--;
   }
@@ -73,15 +82,20 @@ class LinkedList {
     return this.size === 0;
   }
 
-  public at(index: number): LinkedNode {
+  public at(index: number): LinkedNode | null {
     const targetNode = this.traverseToIndex(index);
     return targetNode;
   }
 
   public reverse(): void {
+    if (this.head === null || this.size < 2) {
+      throw new Error("Sorry, you can't reverse");
+    }
+
     this.tail = this.head;
 
-    let current = this.head;
+    // There is a Bug Here
+    let current: any = this.head;
     let previous = null;
     let next = null;
 
@@ -96,8 +110,14 @@ class LinkedList {
   }
 
   public getAllValues(): any[] {
+    if (this.head === null || this.tail === null) {
+      return [];
+    }
+
     const values: any[] = [this.head.value];
-    let current = this.head;
+
+    // There is a Bug Here!
+    let current: any = this.head;
 
     do {
       values.push(current.next.value);

@@ -1,8 +1,8 @@
 class StackNode {
   value: any;
-  next: StackNode;
+  next: StackNode | null;
 
-  constructor(value) {
+  constructor(value: any) {
     this.value = value;
     this.next = null;
   }

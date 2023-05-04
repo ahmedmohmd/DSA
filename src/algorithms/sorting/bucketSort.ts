@@ -1,5 +1,5 @@
 import List from "../../data-structres/linked-list/linked-list";
-import LinkedNode from "../../data-structres/linked-list/linked-node";
+import LinkedNode from "../../data-structres/linked-list/utils/linked-node";
 
 class BucketSort {
   public sort(array: number[], bucketsNumber: number): number[] {

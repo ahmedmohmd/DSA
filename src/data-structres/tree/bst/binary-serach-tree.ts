@@ -1,4 +1,4 @@
-import BSTNode from "./bst-node";
+import BSTNode from "./utils/bst-node";
 
 class BST {
   root: BSTNode;

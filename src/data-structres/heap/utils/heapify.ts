@@ -20,7 +20,7 @@ class Heapify {
     let leftIndex = index * 2 + 1;
     if (
       leftIndex < this.array.length &&
-      this.array.at(largestIndex) < this.array.at(leftIndex)
+      this.array[largestIndex] < this.array[leftIndex]
     ) {
       largestIndex = leftIndex;
     }
@@ -28,7 +28,7 @@ class Heapify {
     let rightIndex = index * 2 + 2;
     if (
       rightIndex < this.array.length &&
-      this.array.at(largestIndex) < this.array.at(rightIndex)
+      this.array[largestIndex] < this.array[rightIndex]
     ) {
       largestIndex = rightIndex;
     }

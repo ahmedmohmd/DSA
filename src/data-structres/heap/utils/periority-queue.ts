@@ -2,7 +2,7 @@ import Heap from "../heap";
 
 class PriorityQueue<T> {
   private heap: Heap;
-  private data: Map<number, T>;
+  private data: Map<number | undefined, T>;
 
   constructor() {
     this.heap = new Heap();
@@ -14,7 +14,7 @@ class PriorityQueue<T> {
     this.data.set(priority, item);
   }
 
-  public dequeue() {
+  public dequeue(): T | undefined {
     const deletedItem = this.heap.remove();
     return this.data.get(deletedItem);
   }

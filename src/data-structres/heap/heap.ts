@@ -34,7 +34,7 @@ class Heap {
   }
 
   public remove(): number | undefined {
-    if (this.isEmpty) {
+    if (this.isEmpty || this.data.length === 0) {
       throw new Error("The Heap is Empty!");
     }
 

@@ -1,9 +1,9 @@
-import QueueNode from "./queue-node";
+import QueueNode from "../utils/queue-node";
 
 class Queue {
   private size: number;
-  private first: QueueNode;
-  private last: QueueNode;
+  private first: QueueNode | null;
+  private last: QueueNode | null;
 
   constructor() {
     this.first = null;
@@ -11,12 +11,12 @@ class Queue {
     this.size = 0;
   }
 
-  peek(): QueueNode {
+  peek(): QueueNode | null {
     return this.first;
   }
 
-  public dequeue(): QueueNode {
-    if (this.size === 0) {
+  public dequeue(): QueueNode | null {
+    if (this.first === null || this.last === null) {
       return null;
     }
 
@@ -39,12 +39,15 @@ class Queue {
   public enqueue(value: any) {
     const node = new QueueNode(value);
 
-    if (this.size === 0) {
+    if (this.first === null && this.last === null) {
       this.first = node;
       this.last = node;
     } else {
-      this.last.next = node;
-      this.last = node;
+      // ! There is a Problem Here!
+      if (this.last) {
+        this.last.next = node;
+        this.last = node;
+      }
     }
 
     this.size++;
