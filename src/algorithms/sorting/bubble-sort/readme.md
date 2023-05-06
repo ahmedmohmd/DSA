@@ -1,4 +1,4 @@
-# Bubble Sort: An Introduction
+# Bubble Sort
 
 Bubble Sort is one of the simplest sorting algorithms, commonly used in introductory computer science courses. The algorithm works by repeatedly swapping adjacent elements in a list that are in the wrong order, until the list is sorted. Despite its simplicity, Bubble Sort is known for its poor performance and is generally not used in real-world applications where large data sets are involved.
 
