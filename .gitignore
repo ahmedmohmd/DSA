@@ -1,5 +1,5 @@
 /node_modules
-src/algorithms
-src/design-patterns
-src/data-structures/tree/avl
-src/data-structures/tree/trie
+# src/algorithms
+# src/design-patterns
+# src/data-structures/tree/avl
+# src/data-structures/tree/trie
