@@ -1,10 +1,10 @@
-## 1. Insertion Sort
+# Insertion Sort
 
 Insertion sort is a simple sorting algorithm that is commonly used in computer science. It is an in-place comparison-based sorting algorithm, meaning it does not require extra memory to perform the sort. Insertion sort is efficient for small lists and is often used as the building block for more complex sorting algorithms.
 
 The idea behind insertion sort is to divide the input array into two subarrays: a sorted subarray and an unsorted subarray. Initially, the sorted subarray contains only the first element of the input array, and the unsorted subarray contains the rest of the elements. The algorithm then iteratively picks an element from the unsorted subarray, finds its correct position in the sorted subarray, and inserts it into that position. This process repeats until all elements are in the sorted subarray, resulting in a sorted array.
 
-## 2. Table of Complexities
+## Table of Complexities
 
 |      | Best Case | Average Case | Worst Case | Space Complexity |
 | ---- | --------- | ------------ | ---------- | ---------------- |
@@ -14,7 +14,7 @@ In the best case scenario, where the input array is already sorted, insertion so
 
 Insertion sort has a space complexity of O(1) because it only requires a constant amount of extra memory to perform the sort.
 
-## 3. Application of the Algorithm
+## Application of the Algorithm
 
 Insertion sort is often used in situations where the input array is small, or where the input array is almost sorted. In these cases, insertion sort can be faster than more complex sorting algorithms such as quicksort or mergesort, which have higher time complexities.
 

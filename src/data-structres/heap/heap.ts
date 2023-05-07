@@ -33,12 +33,12 @@ class Heap {
     }
   }
 
-  public remove(): number | undefined {
+  public remove(): number {
     if (this.isEmpty || this.data.length === 0) {
       throw new Error("The Heap is Empty!");
     }
 
-    let poppedItem = this.data.shift();
+    let poppedItem = this.data.shift()!;
     this.size--;
 
     this.bubbleDown();

@@ -1,6 +1,8 @@
-import InsertionSort from "./src/algorithms/sorting/insertion-sort/insertion-sort";
+import HeapSort from "./src/data-structres/heap/utils/heap-sort";
 
-const array = [4, 3, 7, 5, 1];
-InsertionSort.sort(array);
+const array = [5, 3, 1, 2, 4];
+const sort = new HeapSort(array);
 
-console.log(array);
+sort.sort();
+
+console.log(sort.data);

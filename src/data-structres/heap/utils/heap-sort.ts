@@ -10,22 +10,34 @@ class HeapSort {
   }
 
   public sort(desc?: boolean): void {
+    this.fillHeap();
+
+    if (desc) {
+      this.sortDesc();
+    } else {
+      this.sortAsc();
+    }
+  }
+
+  private fillHeap(): void {
     for (let number of this.array) {
       this.heap.insert(number);
     }
+  }
 
-    if (desc) {
-      let index = 0;
-      while (index < this.array.length) {
-        this.array[index] = this.heap.remove();
-        index++;
-      }
-    } else {
-      let index = this.array.length - 1;
-      while (index >= 0) {
-        this.array[index] = this.heap.remove();
-        index--;
-      }
+  private sortDesc(): void {
+    let index = 0;
+    while (index < this.array.length) {
+      this.array[index] = this.heap.remove();
+      index++;
+    }
+  }
+
+  private sortAsc(): void {
+    let index = this.array.length - 1;
+    while (index >= 0) {
+      this.array[index] = this.heap.remove();
+      index--;
     }
   }
 
