@@ -1,15 +1,15 @@
 class MergeSort {
-  public sort(array: number[]): number[] {
+  public static sort(array: number[]): number[] {
     if (array.length === 1) return array;
 
     const middle: number = Math.floor(array.length / 2);
     const left: number[] = array.slice(0, middle);
     const right: number[] = array.slice(middle);
 
-    return this.merge(this.sort(left), this.sort(right));
+    return MergeSort.merge(MergeSort.sort(left), MergeSort.sort(right));
   }
 
-  private merge(left: number[], right: number[]): number[] {
+  private static merge(left: number[], right: number[]): number[] {
     const result: number[] = [];
     let leftIndex: number = 0;
     let rightIndex: number = 0;
