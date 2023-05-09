@@ -1,21 +1,21 @@
-import BSTNode from "./utils/bst-node";
+import Node from "./utils/node";
 
 class BST {
-  root: BSTNode;
+  root: any;
 
   constructor() {
     this.root = null;
   }
 
   public insert(value: number): void {
-    const node = new BSTNode(value);
-    let current = this.root;
+    const node = new Node(value);
 
     if (!this.root) {
       this.root = node;
       return;
     }
 
+    let current = this.root;
     while (true) {
       if (current.value > value) {
         if (!current.left) {
@@ -24,22 +24,24 @@ class BST {
         }
 
         current = current.left;
-      }
+      } else {
+        if (!current.right) {
+          current.right = node;
+          break;
+        }
 
-      if (!current.right) {
-        current.right = node;
-        break;
+        current = current.right;
       }
-
-      current = current.right;
     }
   }
 
   public lookup(value: number): boolean {
     if (!this.root) return false;
 
-    let current = this.root;
-    while (current) {
+    // Something Here
+    let current: Node | null = this.root;
+
+    while (current !== null) {
       if (current.value > value) {
         current = current.left;
       } else if (current.value < value) {
@@ -52,12 +54,12 @@ class BST {
     return false;
   }
 
-  remove(value) {
+  public remove(value: number) {
     if (!this.root) {
-      return false; // If the tree is empty, the node cannot be found
+      return false;
     }
 
-    let current = this.root;
+    let current: any = this.root;
     let parent: any = null;
     let direction: any = null;
 
@@ -124,28 +126,49 @@ class BST {
     return true; // Node removed successfully
   }
 
-  public PreOT(node: BSTNode = this.root, result: number[] = []): number[] {
-    if (!node) return result;
+  public breathFistSearch(node: Node | null = this.root): void {
+    if (!node) throw new Error("Sorry, there is no elements in The Tree!");
 
-    result.push(node.value);
-    this.PreOT(node.left, result);
-    this.PreOT(node.right, result);
+    const queue = [node];
+
+    while (queue.length > 0) {
+      let current = queue.shift();
+
+      if (!current) break;
+
+      console.log(current?.value);
+
+      if (current?.left !== null) {
+        queue.push(current.left);
+      }
+      if (current?.right !== null) {
+        queue.push(current.right);
+      }
+    }
   }
 
-  public PostOT(node: BSTNode = this.root, result: number[] = []): number[] {
-    if (!node) return result;
+  public preOrderTraverse(node: Node | null = this.root): void {
+    if (!node) return;
 
-    this.PostOT(node.left, result);
-    this.PostOT(node.right, result);
-    result.push(node.value);
+    console.log(node.value);
+    this.preOrderTraverse(node.left);
+    this.preOrderTraverse(node.right);
   }
 
-  public InOT(node: BSTNode = this.root, result: number[] = []): number[] {
-    if (!node) return result;
+  public postOrderTraverse(node: Node | null = this.root): void {
+    if (!node) return;
 
-    this.InOT(node.left, result);
-    result.push(node.value);
-    this.InOT(node.right, result);
+    this.postOrderTraverse(node.left);
+    this.postOrderTraverse(node.right);
+    console.log(node.value);
+  }
+
+  public inOrderTraverse(node: Node | null = this.root): void {
+    if (!node) return;
+
+    this.inOrderTraverse(node.left);
+    console.log(node.value);
+    this.inOrderTraverse(node.right);
   }
 }
 
