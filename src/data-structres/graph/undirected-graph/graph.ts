@@ -1,5 +1,5 @@
 import PriorityQueue from "../../heap/utils/periority-queue";
-import Edge from "./utils/edge";
+import { default as Edge } from "./utils/edge";
 import Node from "./utils/node";
 
 class Graph {
@@ -28,7 +28,7 @@ class Graph {
     toNode.edges.push(new Edge(fromNode, toNode, weight));
   }
 
-  public getShortestPath(from: string, to: string): Array<Node> {
+  public getShortestPath(from: string, to: string): Array<string | undefined> {
     const fromNode = this.nodes.get(from);
     if (!fromNode) {
       throw new Error("Sorry, 'From Node' not Found!");
@@ -54,7 +54,7 @@ class Graph {
     fromNode: Node,
     toNode: Node,
     distances: Map<Node, number>
-  ): Array<Node> {
+  ): Array<string | undefined> {
     const previousNodes: Map<Node, Node> = new Map();
 
     const visited: Set<Node> = new Set();
@@ -63,16 +63,16 @@ class Graph {
     queue.enqueue(fromNode, 0);
 
     while (queue.size > 0) {
-      const current = queue.dequeue();
+      const current = queue.dequeue()!;
 
       if (visited.has(current)) continue;
 
       visited.add(current);
 
       for (let edge of current.edges) {
-        const newDistance = distances.get(current) + edge.weight;
+        const newDistance = distances.get(current)! + edge.weight;
 
-        if (newDistance < distances.get(edge.to)) {
+        if (newDistance < distances.get(edge.to)!) {
           distances.set(edge.to, newDistance);
 
           previousNodes.set(edge.to, current);
@@ -93,7 +93,7 @@ class Graph {
 
     const result = [];
     while (stack.length > 0) {
-      result.push(stack.pop().value);
+      result.push(stack.pop()?.value);
     }
 
     return result;
@@ -111,7 +111,11 @@ class Graph {
     return false;
   }
 
-  private isCyclic(node: Node, parent: Node, visited: Set<Node>): boolean {
+  private isCyclic(
+    node: Node,
+    parent: Node | null,
+    visited: Set<Node>
+  ): boolean {
     visited.add(node);
 
     for (let edge of node.edges) {
@@ -136,14 +140,14 @@ class Graph {
 
     const startNode = this.nodes.values().next().value;
 
-    startNode.edges.map((edge) => {
+    startNode.edges.map((edge: Edge) => {
       edges.enqueue(edge, edge.weight);
     });
 
     tree.addNode(startNode.value);
 
     while (this.nodes.size > tree.nodes.size) {
-      const minEdge = edges.dequeue();
+      const minEdge = edges.dequeue()!;
 
       if (tree.nodes.has(minEdge.to.value)) {
         continue;
