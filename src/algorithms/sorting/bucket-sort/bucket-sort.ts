@@ -2,7 +2,7 @@ import List from "../../../data-structres/linked-list/linked-list";
 import LinkedNode from "../../../data-structres/linked-list/utils/linked-node";
 
 class BucketSort {
-  public sort(array: number[], bucketsNumber: number): number[] {
+  public static sort(array: number[], bucketsNumber: number): number[] {
     const buckets: List = this.createBuckets(array, bucketsNumber);
 
     let k: number = 0;
@@ -21,7 +21,7 @@ class BucketSort {
     return array;
   }
 
-  private createBuckets(array: number[], bucketsNumber: number) {
+  private static createBuckets(array: number[], bucketsNumber: number) {
     const buckets = new List();
 
     for (let i = 0; i < bucketsNumber; i++) {

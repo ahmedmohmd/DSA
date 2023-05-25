@@ -1,5 +1,5 @@
 class CountSort {
-  public sort(array: number[], max?: number): void | [] {
+  public static sort(array: number[], max?: number): void | [] {
     if (array.length === 0) return [];
 
     const maxNum: number = (max || this.getMax(array)) + 1;
@@ -18,7 +18,7 @@ class CountSort {
     }
   }
 
-  private getMax(array: number[]): number {
+  private static getMax(array: number[]): number {
     return Math.max(...array);
   }
 }
