@@ -1,4 +1,4 @@
-import BinarySearch from "./binarySearch";
+import BinarySearch from "./binary-search/binary-search";
 
 /**
  * ? Important Note:

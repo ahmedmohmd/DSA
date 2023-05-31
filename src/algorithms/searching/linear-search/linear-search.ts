@@ -1,5 +1,5 @@
 class LinearSearch {
-  public search(array: any[], target: any): any {
+  public static search(array: any[], target: any): any {
     for (let i: number = 0; i < array.length; i++) {
       if (array[i] === target) return i;
     }
