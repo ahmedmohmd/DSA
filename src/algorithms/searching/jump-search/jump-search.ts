@@ -4,12 +4,12 @@
  */
 
 class JumpSearch {
-  public search(array: any[], target: any) {
-    let blockSize: number = this.getBlockSize(array);
+  public static search(array: any[], target: any) {
+    let blockSize: number = JumpSearch.getBlockSize(array);
     let start = 0;
     let next = blockSize;
 
-    while (start < array.length && array.at(next - 1) < target) {
+    while (start < array.length && array[next - 1] < target) {
       start = next;
 
       next += blockSize;
@@ -17,13 +17,13 @@ class JumpSearch {
     }
 
     for (let i = start; i < next; i++) {
-      if (array.at(i) === target) return i;
+      if (array[i] === target) return i;
     }
 
     return -1;
   }
 
-  private getBlockSize(array: any[]) {
+  private static getBlockSize(array: any[]) {
     return Number.parseInt(Math.sqrt(array.length).toString());
   }
 }
