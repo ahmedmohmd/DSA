@@ -75,7 +75,7 @@ class Trie {
     }
   }
 
-  private getLastNode(prefix: string): null | TrieNode {
+  private getLastNode(prefix: string): any {
     let current = this.root;
 
     for (let char of prefix) {

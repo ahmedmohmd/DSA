@@ -1,5 +1,5 @@
 class TrieNode {
-  private children: {
+  children: {
     [key: string]: TrieNode;
   };
   isEndOfWord: boolean;
@@ -27,7 +27,7 @@ class TrieNode {
   }
 
   public hasChildren() {
-    return Boolean(this.children);
+    return Object.keys(this.children).length > 0;
   }
 
   public addChild(char: string): void {
