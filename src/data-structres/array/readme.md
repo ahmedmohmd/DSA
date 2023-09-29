@@ -4,7 +4,7 @@ An array is a data structure that stores a collection of elements of the same ty
 
 # Time and Space Complexity
 
-| Process   | Best | Average | Best | Space Complexity |
+| Process   | Best | Average | Worst | Space Complexity |
 | --------- | ---- | ------- | ---- | ---------------- |
 | Access    | O(1) | O(1)    | O(1) | O(n)             |
 | Search    | O(1) | O(n/2)  | O(n) | O(1)             |
