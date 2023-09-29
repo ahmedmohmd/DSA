@@ -42,15 +42,15 @@ class Queue {
     if (this.first === null && this.last === null) {
       this.first = node;
       this.last = node;
-    } else {
-      // ! There is a Problem Here!
-      if (this.last) {
-        this.last.next = node;
-        this.last = node;
-      }
-    }
 
-    this.size++;
+      this.size++;
+      return
+    } 
+    
+      this.last.next = node;
+      this.last = node;
+    
+      this.size++;
   }
 
   public getSize(): number {
