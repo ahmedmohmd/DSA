@@ -1,12 +1,12 @@
 {
-  "name": "data-structures-and-algos",
+  "name": "DSA",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ahmedmohmd/data-structures-and-algos.git",
+  "repository": "git@github.com:ahmedmohmd/DSA.git",
   "author": "<Ahmed Mohamed>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./index.ts"
+    "start:dev": "nodemon ./index.ts"
   },
   "dependencies": {
     "ts-node": "^10.9.1"
